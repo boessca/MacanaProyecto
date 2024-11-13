@@ -70,9 +70,7 @@ public class EvilPlant : MonoBehaviour
 
             if (hits >= 3)
             {
-                player.ReceiveSeed(); // Otorga una semilla al jugador
-                Destroy(gameObject); // Destruye la planta después de 3 golpes
-            
+               Defeat();           
                  
             }
 

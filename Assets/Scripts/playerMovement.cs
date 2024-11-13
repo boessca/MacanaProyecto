@@ -14,57 +14,60 @@ public LayerMask plantLayer;
 public Transform plantCheck;
 
 public LayerMask groundLayer;
+public Transform groundCheck;
+
+
 public int lives = 3; 
 public int seeds = 0;
 
 
+
 private Rigidbody2D _rb;
+private Animator _animator;
 
 
     // Start is called before the first frame update
     void Start()
     {
        _rb = GetComponent <Rigidbody2D>();
-       
+       _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
        float moveInput = Input.GetAxis("Horizontal");
+
+       if(moveInput < 0.0f) transform.localScale = new Vector3(-1, 1, 1);
+       else if (moveInput > 0.0f) transform.localScale = new Vector3(1, 1, 1);
+
        _rb.velocity = new Vector2(moveInput * speed, _rb.velocity.y);
 
-       if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+       _animator.SetBool("isWalking", moveInput != 0.0f);
+       
+       Jump();
+
+    }
+     public void Jump()
+     {
+        if (Input.GetKeyDown(KeyCode.Space) && touchGround())
         {
          _rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
         }
-
     }
+
+    public bool touchGround()
+{
+    return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.4f, 0.6f), CapsuleDirection2D.Vertical, 0, groundLayer);
+
     
-          private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // me dice si el objeto con el que choca esta en el suelo
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            // isGrounded me dice si esta en el suelo
-            isGrounded = true;
-        }
-    }
+}    
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        // cambia isGrounded a falso cuando el personaje deja de tocar el suelo
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
-        }
-
-    }
-
+   
     public void hitPlant()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+       if (Input.GetKeyDown(KeyCode.X) && TouchingPlant()) 
         {
             
         }
