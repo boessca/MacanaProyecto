@@ -20,7 +20,7 @@ public Transform groundCheck;
 public int lives = 3; 
 public int seeds = 0;
 
-
+private bool isAttacking;
 
 private Rigidbody2D _rb;
 private Animator _animator;
@@ -44,8 +44,10 @@ private Animator _animator;
        _rb.velocity = new Vector2(moveInput * speed, _rb.velocity.y);
 
        _animator.SetBool("isWalking", moveInput != 0.0f);
+       _animator.SetBool("isAttacking", isAttacking);
        
        Jump();
+       hitPlant();
 
     }
      public void Jump()
@@ -67,9 +69,9 @@ private Animator _animator;
    
     public void hitPlant()
     {
-       if (Input.GetKeyDown(KeyCode.X) && TouchingPlant()) 
+       if (Input.GetKeyDown(KeyCode.X)) 
         {
-            
+            isattacking();
         }
     }
 
@@ -78,9 +80,20 @@ private Animator _animator;
 
         //overlap crea capsula imaginaria / plantcheck desde la posicion de la planta / si toca la capa de planta te devuelve que si, sino que no
     {
-        return Physics2D.OverlapCapsule(plantCheck.position, new Vector2(2f, 0.6f), CapsuleDirection2D.Vertical, 0, plantLayer);
+        return Physics2D.OverlapCapsule(plantCheck.position, new Vector2(8f, 8f), CapsuleDirection2D.Vertical, 0, plantLayer);
     }
 
+
+
+    public void isattacking()
+    {
+        isAttacking = true;
+    }
+
+    public void noattacking()
+    {
+        isAttacking = false;
+    }
 
     public void ReceiveSeed()
 {

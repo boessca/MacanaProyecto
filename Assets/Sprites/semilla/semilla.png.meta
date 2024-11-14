@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 930e63b4f211c114eb17eacc0386b05e
+guid: b7f05b41e67fd4c4595da629a8e657c7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 150
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,43 +110,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: evilplant_0
+      name: semilla_0
       rect:
         serializedVersion: 2
-        x: 60
+        x: 0
         y: 0
-        width: 560
-        height: 810
-      alignment: 9
-      pivot: {x: 0.5365081, y: 0.014614273}
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87ad2b90fbdc36b4785370b1fe81bee0
-      internalID: 1220553379
+      spriteID: 568adef8306040d49b7644e750be12ce
+      internalID: -507732446
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: evilplant_1
+      name: semilla_1
       rect:
         serializedVersion: 2
-        x: 730
+        x: 320
         y: 0
-        width: 580
-        height: 780
-      alignment: 9
-      pivot: {x: 0.55422974, y: 0.014091585}
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0178ac30da967374db64dcc76528deb7
-      internalID: -1273369022
+      spriteID: 32d73522a67b44a4bb30e4d33764eb7a
+      internalID: -1993084743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: semilla_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cff67504497b204d8d2fcc0dcd6bf91
+      internalID: -1577533359
       vertices: []
       indices: 
       edges: []
@@ -162,8 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      evilplant_0: 1220553379
-      evilplant_1: -1273369022
+      semilla_0: -507732446
+      semilla_1: -1993084743
+      semilla_2: -1577533359
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

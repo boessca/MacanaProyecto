@@ -9,7 +9,8 @@ public class SeedRecolection : MonoBehaviour
 
     public int currentSeed;
     public int maxSeed = 3;
-   
+    
+
     
     
     // Start is called before the first frame update

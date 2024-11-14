@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 930e63b4f211c114eb17eacc0386b05e
+guid: cc22f2c27e3d0b04994391d7424c5998
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,43 +110,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: evilplant_0
+      name: plantagolpeada_0
       rect:
         serializedVersion: 2
-        x: 60
+        x: 0
         y: 0
         width: 560
-        height: 810
+        height: 700
       alignment: 9
-      pivot: {x: 0.5365081, y: 0.014614273}
+      pivot: {x: 0.53692764, y: 0.014196539}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87ad2b90fbdc36b4785370b1fe81bee0
-      internalID: 1220553379
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: evilplant_1
-      rect:
-        serializedVersion: 2
-        x: 730
-        y: 0
-        width: 580
-        height: 780
-      alignment: 9
-      pivot: {x: 0.55422974, y: 0.014091585}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0178ac30da967374db64dcc76528deb7
-      internalID: -1273369022
+      spriteID: 03d591b7d0521b74e91bf7cd02a36d34
+      internalID: -493072837
       vertices: []
       indices: 
       edges: []
@@ -162,8 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      evilplant_0: 1220553379
-      evilplant_1: -1273369022
+      plantagolpeada_0: -493072837
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
