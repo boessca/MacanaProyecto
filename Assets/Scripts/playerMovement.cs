@@ -21,6 +21,7 @@ public int lives = 3;
 public int seeds = 0;
 
 private bool isAttacking;
+private bool isjumping;
 
 private Rigidbody2D _rb;
 private Animator _animator;
@@ -45,7 +46,12 @@ private Animator _animator;
 
        _animator.SetBool("isWalking", moveInput != 0.0f);
        _animator.SetBool("isAttacking", isAttacking);
-       
+       _animator.SetBool("isGrounded",touchGround());
+
+       float yvelocity;
+       yvelocity = _rb.velocity.y;
+       _animator.SetFloat("yvelocity", yvelocity);
+
        Jump();
        hitPlant();
 
@@ -55,6 +61,7 @@ private Animator _animator;
         if (Input.GetKeyDown(KeyCode.Space) && touchGround())
         {
          _rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+         _animator.SetBool("isjumping", isjumping);
 
         }
     }
@@ -93,6 +100,16 @@ private Animator _animator;
     public void noattacking()
     {
         isAttacking = false;
+    }
+
+    public void isJumping()
+    {
+        isjumping = true;
+    }
+
+    public void isnotJumping()
+    {
+        isjumping = false;
     }
 
     public void ReceiveSeed()
