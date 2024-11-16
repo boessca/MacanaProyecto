@@ -10,6 +10,8 @@ public class SeedRecolection : MonoBehaviour
     public int currentSeed;
     public int maxSeed = 3;
     
+    public GameObject fin;
+
 
     
     
@@ -22,7 +24,10 @@ public class SeedRecolection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (currentSeed == 3) 
+        {
+            fin.SetActive(true);
+        }
     }
 
 

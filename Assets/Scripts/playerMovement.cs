@@ -25,6 +25,11 @@ public Transform plantCheck;
 public LayerMask groundLayer;
 public Transform groundCheck;
 
+[Header("Fin del juego")]
+    public int seedCount = 0; 
+    public GameObject endGameUI; 
+
+
 
 private Rigidbody2D _rb;
 private Animator _animator;
@@ -131,7 +136,21 @@ private Animator _animator;
     {
         isjumping = false;
     }
+ 
+    public void AddSeed()
+    {
+        seedCount++; 
+        if (seedCount >= 3)
+        {
+            EndGame();
+        }
+    }
 
+    void EndGame()
+    {
+        endGameUI.SetActive(true); 
+        Time.timeScale = 0; 
+    }
      
     }
 
