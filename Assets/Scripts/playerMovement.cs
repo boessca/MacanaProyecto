@@ -5,58 +5,83 @@ using UnityEngine.Scripting.APIUpdating;
 
 public class playerMovement : MonoBehaviour
 {
-public bool isGrounded;
+
+[Header("Horizontal Movement")]
 public bool isMooving = false;
 public float speed = 5f;
-public float jumpForce =6f;
 
+[Header("JUmp")]
+
+public float jumpForce =6f;
+private bool isjumping;
+public bool isGrounded;
+
+
+[Header("Plant Attack and Grab Seeds")]
+private bool isAttacking;
+public int seeds = 0;
 public LayerMask plantLayer;
 public Transform plantCheck;
-
 public LayerMask groundLayer;
 public Transform groundCheck;
 
-
-public int lives = 3; 
-public int seeds = 0;
-
-private bool isAttacking;
-private bool isjumping;
 
 private Rigidbody2D _rb;
 private Animator _animator;
 
 
-    // Start is called before the first frame update
+   
     void Start()
     {
+        //llama al rigidbody y al animator del personaje
        _rb = GetComponent <Rigidbody2D>();
        _animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
+       Jump();
+       hitPlant();
+       Animator();
+       HorizontalMovement();
+
+    }
+
+      private void HorizontalMovement()
+      {
        float moveInput = Input.GetAxis("Horizontal");
 
-       if(moveInput < 0.0f) transform.localScale = new Vector3(-1, 1, 1);
-       else if (moveInput > 0.0f) transform.localScale = new Vector3(1, 1, 1);
+       if(moveInput < 0.0f) 
+       {
+        transform.localScale = new Vector3(-1, 1, 1);
+       }
+
+       else if (moveInput > 0.0f) 
+       {
+        transform.localScale = new Vector3(1, 1, 1);
+       }
 
        _rb.velocity = new Vector2(moveInput * speed, _rb.velocity.y);
+
+      }
+
+          private void Animator()
+      {
+
+        float moveInput = Input.GetAxis("Horizontal");
 
        _animator.SetBool("isWalking", moveInput != 0.0f);
        _animator.SetBool("isAttacking", isAttacking);
        _animator.SetBool("isGrounded",touchGround());
 
-       float yvelocity;
-       yvelocity = _rb.velocity.y;
-       _animator.SetFloat("yvelocity", yvelocity);
+         float yvelocity;
+         yvelocity = _rb.velocity.y;
+         _animator.SetFloat("yvelocity", yvelocity);
+       
+      }
 
-       Jump();
-       hitPlant();
-
-    }
-     public void Jump()
+         public void Jump()
      {
         if (Input.GetKeyDown(KeyCode.Space) && touchGround())
         {
@@ -67,11 +92,9 @@ private Animator _animator;
     }
 
     public bool touchGround()
-{
-    return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.4f, 0.6f), CapsuleDirection2D.Vertical, 0, groundLayer);
-
-    
-}    
+    {
+     return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.4f, 0.6f), CapsuleDirection2D.Vertical, 0, groundLayer);
+    }    
 
    
     public void hitPlant()
@@ -84,12 +107,9 @@ private Animator _animator;
 
   
         public bool TouchingPlant()
-
-        //overlap crea capsula imaginaria / plantcheck desde la posicion de la planta / si toca la capa de planta te devuelve que si, sino que no
     {
-        return Physics2D.OverlapCapsule(plantCheck.position, new Vector2(8f, 8f), CapsuleDirection2D.Vertical, 0, plantLayer);
+        return Physics2D.OverlapCapsule(plantCheck.position, new Vector2(10f, 10f), CapsuleDirection2D.Vertical, 0, plantLayer);
     }
-
 
 
     public void isattacking()
@@ -112,24 +132,7 @@ private Animator _animator;
         isjumping = false;
     }
 
-    public void ReceiveSeed()
-{
-    seeds++; // Aumenta el contador de semillas
-    lives--; // Pierde una vida al recibir la semilla
-    Debug.Log("Recibiste una semilla y perdiste una vida. Vidas restantes: " + lives);
-}
-
-public void PlantSeed()
-{
-    if (seeds > 0)
-    {
-        seeds--; // Disminuye el contador de semillas
-        lives++; // Recupera una vida al plantar la semilla
-        Debug.Log("Plantaste una semilla y recuperaste una vida. Vidas restantes: " + lives);
-    }
-}
-  
-
+     
     }
 
 

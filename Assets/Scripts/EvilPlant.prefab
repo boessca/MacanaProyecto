@@ -100,8 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 3
-  player: {fileID: 0}
-  newSeedPrefab: {fileID: 0}
+  seedPrefab: {fileID: 6467595752893132452, guid: 9054ac06e8a3f734e8da8a71dd498f4d, type: 3}
 --- !u!95 &2829162933944932394
 Animator:
   serializedVersion: 5
@@ -155,16 +154,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.30506587, y: -0.7812662}
+  m_Offset: {x: -0.030572772, y: 2.460177}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.7333333, y: 5.133333}
+    pivot: {x: 0.5365081, y: 0.014614273}
+    oldSize: {x: 3.7333333, y: 5.4}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9505372, y: 3.5708008}
+  m_Size: {x: 3.7905562, y: 5.2120895}
   m_EdgeRadius: 0
